@@ -1,18 +1,18 @@
 const invoices = require("./invoices.json");
 const plays = require("./plays.json");
 
-function renderPlainText(data, invoice, plays) {
+function renderPlainText(data, plays) {
   let result = `청구 내역 (고객명: ${data.customer})\n`;
 
-  for (let perf of invoice.performances) {
+  for (let perf of data.performances) {
     //청구 내역을 출력한다.
     result += `${playFor(perf).name}: ${usd(amountFor(perf))} (${
       perf.audience
     }석)\n`;
   }
 
-  result += `총액: ${usd(totalAmount(invoice))}\n`;
-  result += `적립 포인트: ${totalVolumeCredits(invoice)}점\n`;
+  result += `총액: ${usd(totalAmount())}\n`;
+  result += `적립 포인트: ${totalVolumeCredits()}점\n`;
   return result;
 
   function volumeCreditsFor(aPerformance) {
@@ -62,7 +62,7 @@ function renderPlainText(data, invoice, plays) {
 
   function totalVolumeCredits() {
     let result = 0;
-    for (let perf of invoice.performances) {
+    for (let perf of data.performances) {
       result += volumeCreditsFor(perf);
     }
     return result;
@@ -70,7 +70,7 @@ function renderPlainText(data, invoice, plays) {
 
   function totalAmount() {
     let result = 0;
-    for (let perf of invoice.performances) {
+    for (let perf of data.performances) {
       result += amountFor(perf);
     }
     return result;
@@ -80,7 +80,8 @@ function renderPlainText(data, invoice, plays) {
 function statement(invoice, plays) {
   const statementData = {};
   statementData.customer = invoice.customer;
-  return renderPlainText(statementData, invoice, plays);
+  statementData.performances = invoice.performances;
+  return renderPlainText(statementData, plays);
 }
 
 console.log(statement(invoices, plays));

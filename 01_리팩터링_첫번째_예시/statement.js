@@ -1,15 +1,15 @@
 const invoices = require("./invoices.json");
 const plays = require("./plays.json");
 
-function volumeCreditsFor(perf) {
-  let volumeCredits = 0;
+function volumeCreditsFor(aPerformance) {
+  let result = 0;
   // 포인트를 적립한다.
-  volumeCredits += Math.max(perf.audience - 30, 0);
+  result += Math.max(aPerformance.audience - 30, 0);
 
   // 희극 관객 5명마다 추가 포인트를 제공한다.
-  if ("comedy" === playFor(perf).type)
-    volumeCredits += Math.floor(perf.audience / 5);
-  return volumeCredits;
+  if ("comedy" === playFor(aPerformance).type)
+    result += Math.floor(aPerformance.audience / 5);
+  return result;
 }
 
 function playFor(aPerformance) {

@@ -1,7 +1,7 @@
 const invoices = require("./invoices.json");
 const plays = require("./plays.json");
 
-function renderPlainText(invoice, plays) {
+function renderPlainText(data, invoice, plays) {
   let result = `청구 내역 (고객명: ${invoice.customer})\n`;
 
   for (let perf of invoice.performances) {
@@ -60,7 +60,7 @@ function renderPlainText(invoice, plays) {
     }).format(aNumber / 100);
   }
 
-  function totalVolumeCredits(invoice) {
+  function totalVolumeCredits() {
     let result = 0;
     for (let perf of invoice.performances) {
       result += volumeCreditsFor(perf);
@@ -68,7 +68,7 @@ function renderPlainText(invoice, plays) {
     return result;
   }
 
-  function totalAmount(invoice) {
+  function totalAmount() {
     let result = 0;
     for (let perf of invoice.performances) {
       result += amountFor(perf);
@@ -78,7 +78,8 @@ function renderPlainText(invoice, plays) {
 }
 
 function statement(invoice, plays) {
-  return renderPlainText(invoice, plays);
+  const statementData = {};
+  return renderPlainText(statementData, invoice, plays);
 }
 
 console.log(statement(invoices, plays));

@@ -82,6 +82,11 @@ function statement(invoice, plays) {
   statementData.customer = invoice.customer;
   statementData.performances = invoice.performances;
   return renderPlainText(statementData, plays);
+
+  function enrichPerformance(aPerformance) {
+    const result = Object.assign({}, aPerformance);
+    return result;
+  }
 }
 
 console.log(statement(invoices, plays));

@@ -42,21 +42,19 @@ function createStatementData(invoice, plays) {
 
   function volumeCreditsFor(aPerformance) {
     let result = 0;
-    // 포인트를 적립한다.
     result += Math.max(aPerformance.audience - 30, 0);
 
-    // 희극 관객 5명마다 추가 포인트를 제공한다.
     if ("comedy" === aPerformance.play.type)
       result += Math.floor(aPerformance.audience / 5);
     return result;
   }
 
-  function totalVolumeCredits(data) {
-    return data.performances.reduce((total, p) => total + p.volumeCredits, 0);
-  }
-
   function totalAmount(data) {
     return data.performances.reduce((total, p) => total + p.amount, 0);
+  }
+
+  function totalVolumeCredits(data) {
+    return data.performances.reduce((total, p) => total + p.volumeCredits, 0);
   }
 }
 

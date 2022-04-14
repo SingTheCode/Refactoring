@@ -2,9 +2,9 @@ function sampleProvinceData() {
   return {
     name: "Asia",
     producers: [
-      { name: "Byzantium", const: 10, production: 9 },
-      { name: "Attalia", const: 12, production: 10 },
-      { name: "sinope", const: 10, production: 6 },
+      { name: "Byzantium", cost: 10, production: 9 },
+      { name: "Attalia", cost: 12, production: 10 },
+      { name: "sinope", cost: 10, production: 6 },
     ],
     demand: 30,
     price: 20,
@@ -63,7 +63,7 @@ class Province {
   }
 
   get profit() {
-    return this.demandValue - this.demandConst;
+    return this.demandValue - this.demandCost;
   }
 
   get demandValue() {

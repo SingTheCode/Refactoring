@@ -1,9 +1,8 @@
 function printPwing(invoice) {
-  let outstanding = 0;
-
   printBanner();
 
   // 미해결 채무(outstanding)를 계산한다.
+  let outstanding = 0;
   for (const o of invoice.orders) {
     outstanding += o.amount;
   }

@@ -11,3 +11,10 @@ function circum(radius) {
 function circumference(radius) {
   return 2 * Math.PI * radius;
 }
+
+// 매개변수 추가하기
+class Book {
+  addReservation(customer) {
+    this._reservations.push(customer);
+  }
+}

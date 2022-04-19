@@ -12,3 +12,7 @@ function title() {
 function setTitle(arg) {
   _title = arg;
 }
+
+// 상수 이름 바꾸기
+const cpyNm = "애크미 구스베리";
+

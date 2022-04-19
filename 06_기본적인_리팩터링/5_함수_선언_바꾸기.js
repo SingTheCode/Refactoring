@@ -26,8 +26,7 @@ class Book {
 
 // 매개변수를 속성으로 바꾸기
 function inNewEngland(aCustomer) {
-  const stateCode = aCustomer.address.state;
-  return xxNEWinNewEngland(stateCode);
+  return xxNEWinNewEngland(aCustomer.address.state);
 }
 
 function xxNEWinNewEngland(stateCode) {

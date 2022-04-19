@@ -9,5 +9,5 @@ function setDefaultOwner(arg) {
   defaultOwner = arg;
 }
 
-spaceship.owner = defaultOwner;
-defaultOwner = { firstName: "레베카", lastName: "파슨스" };
+spaceship.owner = getDefaultOwner();
+setDefaultOwner({ firstName: "레베카", lastName: "파슨스" });

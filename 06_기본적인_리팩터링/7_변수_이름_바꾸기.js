@@ -1,14 +1,14 @@
 // 예시
-let tpHd = "untitled";
+let _title = "untitled";
 
 result += `<h1>${title()}</h1>`;
 
 setTitle(obj["articleTitle"]);
 
 function title() {
-  return tpHd;
+  return _title;
 }
 
 function setTitle(arg) {
-  tpHd = arg;
+  _title = arg;
 }

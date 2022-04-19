@@ -26,8 +26,12 @@ class Book {
 
 // 매개변수를 속성으로 바꾸기
 function inNewEngland(aCustomer) {
-  const stateCode = aCustomer.address.state
+  const stateCode = aCustomer.address.state;
+  return xxNEWinNewEngland(stateCode);
+}
+
+function xxNEWinNewEngland(stateCode) {
   return ["MA", "CT", "ME", "VT", "NH", "RI"].includes(stateCode);
 }
 
-const newEnglanders = someCustomers.filter(c => inNewEngland(c));
+const newEnglanders = someCustomers.filter((c) => inNewEngland(c));

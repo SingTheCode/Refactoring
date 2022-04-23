@@ -34,14 +34,13 @@ const range = new NumberRange(
   operatingPlan.temperatureCeiling
 );
 
-function readingsOutsideRange(station, min, max, range) {
-  return station.readings.filter((r) => r.temp < min || r.temp > max);
+function readingsOutsideRange(station, min, range) {
+  return station.readings.filter((r) => r.temp < min || r.temp > range.max);
 }
 
 alerts = readingsOutsideRange(
   station,
   operatingPlan.temperatureFloor,
-  operatingPlan.temperatureCeiling,
   range
 );
 

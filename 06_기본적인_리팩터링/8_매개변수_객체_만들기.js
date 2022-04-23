@@ -1,7 +1,7 @@
 // 예시
 class NumberRange {
   constructor(min, max) {
-    this._data = {min: min, max: max}
+    this._data = { min: min, max: max };
   }
 
   get min() {
@@ -24,12 +24,20 @@ const station = {
   ],
 };
 
-function readingsOutsideRange(station, min, max) {
+const operatingPlan = {
+  temperatureFloor: 50,
+  temperatureCeiling: 60,
+};
+
+function readingsOutsideRange(station, min, max, range) {
   return station.readings.filter((r) => r.temp < min || r.temp > max);
 }
 
 alerts = readingsOutsideRange(
   station,
   operatingPlan.temperatureFloor,
-  operatingPlan.temperatureCeiling
+  operatingPlan.temperatureCeiling,
+  null
 );
+
+console.log(alerts);

@@ -4,7 +4,7 @@ reading = { customer: "ivan", quantity: 10, month: 5, year: 2017 };
 // 클라이언트1
 const rawReading = acquireReading();
 const aReading = new Reading(rawReading);
-const baseCharge = baseRate(aReading.month, aReading.year) * aReading.quantity;
+const baseCharge = aReading.baseCharge;
 
 // 클라이언트2
 const base = baseRate(aReading.month, aReading.year) * aReading.quantity;

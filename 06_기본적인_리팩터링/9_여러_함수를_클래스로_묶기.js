@@ -7,10 +7,7 @@ const aReading = new Reading(rawReading);
 const baseCharge = aReading.baseCharge;
 
 // 클라이언트2
-const taxableCharge = Math.max(
-  0,
-  aReading.baseCharge - taxThreshold(aReading.year)
-);
+const taxableCharge = Math.max(0, taxableChargeFn(aReading.year));
 
 // 클라이언트3
 const basicChargeAmount = aReading.baseCharge;
@@ -42,4 +39,8 @@ class Reading {
   get baseCharge() {
     return baseRate(this.month, this.year) * this.quantity;
   }
+}
+
+function taxableChargeFn(aReading) {
+  return Math.max(0, aReading.baseCharge - taxThreshold(aReading.year));
 }

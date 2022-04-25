@@ -7,8 +7,10 @@ const aReading = new Reading(rawReading);
 const baseCharge = aReading.baseCharge;
 
 // 클라이언트2
-const base = baseRate(aReading.month, aReading.year) * aReading.quantity;
-const taxableCharge = Math.max(0, base - taxThreshold(aReading.year));
+const taxableCharge = Math.max(
+  0,
+  aReading.baseCharge - taxThreshold(aReading.year)
+);
 
 // 클라이언트3
 const basicChargeAmount = aReading.baseCharge;

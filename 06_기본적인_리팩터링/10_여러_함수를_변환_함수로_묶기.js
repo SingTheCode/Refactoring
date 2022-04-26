@@ -2,7 +2,8 @@
 reading = { customer: "ivan", quantity: 10, month: 5, year: 2017 };
 
 // client1
-const aReading = acquireReading();
+const rawReading = acquireReading();
+const aReading = enrichReading(rawReading);
 const baseCharge = baseRate(aReading.month, aReading.year) * aReading.quantity;
 
 // client2

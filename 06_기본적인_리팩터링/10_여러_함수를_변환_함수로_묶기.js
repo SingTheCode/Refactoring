@@ -6,8 +6,10 @@ const rawReading = acquireReading();
 const aReading = enrichReading(rawReading);
 const baseCharge = aReading.baseCharge;
 // client2
-const base = aReading.baseCharge;
-const taxableCharge = Math.max(0, base - taxThreshold(aReading.year));
+const taxableCharge = Math.max(
+  0,
+  aReading.baseCharge - taxThreshold(aReading.year)
+);
 
 // client3
 const basicChargeAmount = aReading.baseCharge;
